@@ -55,12 +55,37 @@ public class PowerOfTwoMaxHeap {
     }
 
     private void heapifyDown(int index) {
+        while (true) {
+            int maxChild = getMaxChild(index);
+            if (maxChild == -1 || heap.get(index) >=
+            heap.get(maxChild)) {
+                break;
+            }
+            swap(index, maxChild);
+            index = maxChild;
+        }
 
+    }
 
+    private int findMaxChild(int index) {
+        int start = index * arity + 1;
+        int end = Math.min(heap.size() - 1, start + arity - 1);
+        if (start > end) {
+            return -1;
+        }
+        int maxChild = start;
+        for (int i = start + 1; i <= end; i++) {
+            if (heap.get(i) > heap.get(maxChild)) {
+                maxChild = i;
+            }
+        } return maxChild;
     }
 
     private void swap (int i, int j) {
 
     }
+
+
+
 
 }
