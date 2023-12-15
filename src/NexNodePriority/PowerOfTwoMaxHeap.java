@@ -17,4 +17,10 @@ public class PowerOfTwoMaxHeap {
         this.arity = arity;
     }
 
+    //method for inserting a new element into the heap
+    public void insert (int value) {
+        heap.add(value);//adds value to the end of the heap
+        heapifyUp(heap.size() - 1);
+    }
+
 }
