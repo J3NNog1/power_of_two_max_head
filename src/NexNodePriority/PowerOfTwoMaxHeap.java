@@ -3,6 +3,9 @@ package NexNodePriority;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
+
 public class PowerOfTwoMaxHeap {
     private List<Integer> heap; //heap is my ArrayList
     // number of children per node (2^arity)
@@ -24,7 +27,16 @@ public class PowerOfTwoMaxHeap {
     }
 
     private void heapifyUp(int index) {
+        while (index > 0) {
+            int parent = (index -1) / arity;
+            if(heap.get(index) > heap.get(parent)){
+                swap(index, parent);
+                index = parent;
+            } else {
+                break;
+            }
 
+        }
 
     }
     public Integer popMax() {
@@ -44,6 +56,10 @@ public class PowerOfTwoMaxHeap {
 
     private void heapifyDown(int index) {
 
+
+    }
+
+    private void swap (int i, int j) {
 
     }
 
