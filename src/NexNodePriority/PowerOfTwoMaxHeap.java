@@ -20,7 +20,31 @@ public class PowerOfTwoMaxHeap {
     //method for inserting a new element into the heap
     public void insert (int value) {
         heap.add(value);//adds value to the end of the heap
-        heapifyUp(heap.size() - 1);
+        heapifyUp(heap.size() - 1);//restores head property
+    }
+
+    private void heapifyUp(int index) {
+
+
+    }
+    public Integer popMax() {
+        if(heap.isEmpty()) {//checks if heap is empty
+            throw new IllegalStateException("Heap is empty");
+        }
+        Integer max = heap.get(0);//retrieves max value
+        Integer last = heap.remove(heap.size() - 1);//removes last element
+
+        //calls heapifyDown if heap is not empty
+        if(!heap.isEmpty()) {
+            heap.set(0, last);
+            heapifyDown(0);
+        }
+        return max;
+    }
+
+    private void heapifyDown(int index) {
+
+
     }
 
 }
